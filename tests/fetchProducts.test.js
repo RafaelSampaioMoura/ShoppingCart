@@ -6,7 +6,7 @@ const computadorSearch = require('../mocks/search');
 describe('1 - Teste a função fetchProducts', () => {
   // implemente seus testes aqui
   test('fetchProducts é uma função', () => {
-    expect(fetchProducts()).toBeInstanceOf(Function);
+    expect(fetchProducts).toBeInstanceOf(Function);
   });
 
   test('Verifica se fetch foi chamado', async () => {
@@ -20,10 +20,12 @@ describe('1 - Teste a função fetchProducts', () => {
   });
 
   test('Verifica se a função retorna o resultado esperado', async () => {
-    await expect(fetchProducts('computador')).resolve.toEqual(computadorSearch);
+    const results = await fetchProducts('computador');
+    expect(results).toEqual(computadorSearch);
   });
 
   test('Verifica se o erro está correto', async () => {
-    await expect(fetchProducts()).reject.toMatch("Shit went tits up, my man");
+    const results = await fetchProducts();
+    expect(results).toBe("Shit went tits up, my man");
   })
 });
