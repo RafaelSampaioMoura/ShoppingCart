@@ -5,7 +5,7 @@ const item = require('../mocks/item');
 describe('2 - Teste a função fetchItem', () => {
   // implemente seus testes aqui
   test('fetchItem é uma função', () => {
-    expect(fetchItem()).toBeInstanceOf(Function);
+    expect(fetchItem).toBeInstanceOf(Function);
   });
 
   test('Verifica se fetch foi chamado', async () => {
@@ -21,10 +21,10 @@ describe('2 - Teste a função fetchItem', () => {
   });
 
   test('Verifica se a função retorna o resultado esperado', async () => {
-    await expect(fetchItem('MLB1615760527')).resolve.toEqual(item);
+    await expect(fetchItem('MLB1615760527')).toEqual(item);
   });
 
   test('Verifica se o erro está correto', async () => {
-    await expect(fetchItem()).reject.toMatch('You must provide an url');
+    await expect(fetchItem()).toEqual('You must provide an url');
   });
 });
