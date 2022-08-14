@@ -1,3 +1,5 @@
+const computerList = document.querySelector('section .items');
+
 const createProductImageElement = (imageSource) => {
   const img = document.createElement('img');
   img.className = 'item__image';
@@ -12,19 +14,28 @@ const createCustomElement = (element, className, innerText) => {
   return e;
 };
 
-const createProductItemElement = ({ sku, name, image }) => {
-  const section = document.createElement('section');
-  section.className = 'item';
+const createProductItemElement = async (sku, name, image) => {
+  const computers = await fetchProducts();
 
-  section.appendChild(createCustomElement('span', 'item__sku', sku));
-  section.appendChild(createCustomElement('span', 'item__title', name));
-  section.appendChild(createProductImageElement(image));
-  section.appendChild(createCustomElement('button', 'item__add', 'Adicionar ao carrinho!'));
+  computers.forEach((computer) => {
+    const section = document.createElement('section');
+    section.className = 'item';
+    sku = computer.id;
+    name = computer.title;
+    image = computer.thumbnail;
+    section.appendChild(createCustomElement('span', 'item__sku', sku));
+    section.appendChild(createCustomElement('span', 'item__title', name));
+    section.appendChild(createProductImageElement(image));
+    section.appendChild(
+      createCustomElement('button', 'item__add', 'Adicionar ao carrinho!')
+    );
 
-  return section;
+    computerList.appendChild(section);
+  });
 };
 
-const getSkuFromProductItem = (item) => item.querySelector('span.item__sku').innerText;
+const getSkuFromProductItem = (item) =>
+  item.querySelector('span.item__sku').innerText;
 
 const cartItemClickListener = (event) => {
   // coloque seu código aqui
@@ -38,4 +49,4 @@ const createCartItemElement = ({ sku, name, salePrice }) => {
   return li;
 };
 
-window.onload = () => { };
+window.onload = () => createProductItemElement();
