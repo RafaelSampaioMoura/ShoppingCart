@@ -5,12 +5,12 @@ localStorageSimulator('getItem');
 
 describe('4 - Teste a função getSavedCartItems', () => {
   // implemente seus testes aqui
-  test('Chama saveCartItems', () => {
+  test('Chama localStorage.getItem', () => {
     getSavedCartItems();
     expect(localStorage.getItem).toHaveBeenCalled();
   });
 
-  test('Chama localStorage.setItems com os argumentos corretos', () => {
+  test('Chama localStorage.getItems com os argumentos corretos', () => {
     getSavedCartItems();
     expect(localStorage.getItem).toHaveBeenCalledWith('cartItems');
   });

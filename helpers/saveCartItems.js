@@ -1,6 +1,5 @@
-const saveCartItems = () => {
+const saveCartItems = (cartToSave) => {
   // seu código aqui
-  const cartToSave = document.querySelector('ol.cart__items').innerHTML;
   localStorage.setItem('cartItems', cartToSave);
 };
 
