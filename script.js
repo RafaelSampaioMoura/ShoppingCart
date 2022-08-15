@@ -1,4 +1,13 @@
 const computerList = document.querySelector('section .items');
+const clearBtn = document.querySelector('button.empty-cart');
+;
+
+const clearCart = () => {
+  const theCart = document.querySelector('ol.cart__items');
+  theCart.innerHTML = '';
+};
+
+clearBtn.addEventListener('click', clearCart)
 const cartItemClickListener = (event) => {
   // coloque seu código aqui
   event.target.remove(this);
