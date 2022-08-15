@@ -44,7 +44,7 @@ describe('Shopping Cart Project', () => {
     cy.clearLocalStorage();
   });
 
-  describe.skip('1 - Desenvolva testes para atingir 25% de cobertura total e 100% da função fetchProducts', () => {
+  describe('1 - Desenvolva testes para atingir 25% de cobertura total e 100% da função fetchProducts', () => {
     it('Verifica a cobertura de testes unitários', () => {
       cy.exec('npm run test:coverage -- --coverageReporters="json-summary" --testFailureExitCode=0 && npm run serialize');
       cy.readFile('coverage/coverage-summary.json').its('total.functions.pct').should('be.gte', 25.00);
@@ -53,7 +53,7 @@ describe('Shopping Cart Project', () => {
     });
   });
 
-  describe.skip('2 - Crie uma listagem de produtos', () => {
+  describe('2 - Crie uma listagem de produtos', () => {
     it('Listagem de produtos', () => {
       cy.get(ITEM_SELECTOR)
         .should('exist')
@@ -61,7 +61,7 @@ describe('Shopping Cart Project', () => {
     });    
   });
 
-  describe.skip('3 - Desenvolva testes para atingir 50% de cobertura total e 100% da função fetchItem', () => {
+  describe('3 - Desenvolva testes para atingir 50% de cobertura total e 100% da função fetchItem', () => {
     it('Verifica a cobertura de testes unitários', () => {
       cy.exec('npm run test:coverage -- --coverageReporters="json-summary" --testFailureExitCode=0 && npm run serialize');
       cy.readFile('coverage/coverage-summary.json').its('total.functions.pct').should('be.gte', 50.00);
@@ -109,7 +109,7 @@ describe('Shopping Cart Project', () => {
     });
   });
 
-  describe.skip('6 - Desenvolva testes para atingir 75% de cobertura total e 100% da função saveCartItems', () => {
+  describe('6 - Desenvolva testes para atingir 75% de cobertura total e 100% da função saveCartItems', () => {
     it('Verifica a cobertura de testes unitários', () => {
       cy.exec('npm run test:coverage -- --coverageReporters="json-summary" --testFailureExitCode=0 && npm run serialize');
       cy.readFile('coverage/coverage-summary.json').its('total.functions.pct').should('be.gte', 75.00);
@@ -118,7 +118,7 @@ describe('Shopping Cart Project', () => {
     });
   });
 
-  describe.skip('7 - Desenvolva testes para atingir 100% de cobertura total e 100% da função getSavedCartItems', () => {
+  describe('7 - Desenvolva testes para atingir 100% de cobertura total e 100% da função getSavedCartItems', () => {
     it('Verifica a cobertura de testes unitários', () => {
       cy.exec('npm run test:coverage -- --coverageReporters="json-summary" --testFailureExitCode=0 && npm run serialize');
       cy.readFile('coverage/coverage-summary.json').its('total.functions.pct').should('be.gte', 100.00);
