@@ -1,17 +1,20 @@
 const computerList = document.querySelector('section .items');
 const clearBtn = document.querySelector('button.empty-cart');
-;
+const shoppingList = document.querySelector('ol.cart__items');
 
 const clearCart = () => {
   const theCart = document.querySelector('ol.cart__items');
   theCart.innerHTML = '';
+  saveCartItems(document.querySelector('ol.cart__items').innerHTML);
 };
 
-clearBtn.addEventListener('click', clearCart)
+clearBtn.addEventListener('click', clearCart);
 const cartItemClickListener = (event) => {
   // coloque seu código aqui
-  event.target.remove(this);
+  event.target.remove();
+  totalPrice();
 };
+
 const restablishCart = () => {
   const theCart = getSavedCartItems();
   document.querySelector('ol.cart__items').innerHTML = theCart;
@@ -20,6 +23,7 @@ const restablishCart = () => {
     item.addEventListener('click', cartItemClickListener);
   });
 };
+
 const createProductImageElement = (imageSource) => {
   const img = document.createElement('img');
   img.className = 'item__image';
@@ -46,6 +50,8 @@ const createCartItemElement = async (e) => {
   li.innerText = `SKU: ${sku} | NAME: ${name} | PRICE: $${salePrice}`;
   li.addEventListener('click', cartItemClickListener);
   theCartList.appendChild(li);
+  saveCartItems(document.querySelector('ol.cart__items').innerHTML);
+  totalPrice();
 };
 
 const createProductItemElement = async (sku, name, image) => {
@@ -77,12 +83,22 @@ const createProductItemElement = async (sku, name, image) => {
 // const getSkuFromProductItem = (item) =>
 //   item.querySelector('span.item__sku').innerText;
 
-// const totalPrice = () => {
-//   const price = document.createElement('section');
-//   price.classList = 'total-price';
+const totalPrice = () => {
+  const theCart = document.querySelector('ol.cart__items');
+  const showPrice = document.querySelector('span.total-price');
+  const cartItems = document.querySelectorAll('li.cart__item');
+  let sum = 0;
+  cartItems.forEach((item) => {
+    const thePrice = item.textContent.split('$');
+    sum += Number(thePrice[1]);
+    showPrice.textContent = sum;
+  });
+  showPrice.innerText = `Preço Total: ${sum.toLocaleString(2)}`;
+  theCart.appendChild(showPrice);
+};
 
-// }
-
-window.onload = () => createProductItemElement();
-window.onunload = () =>
-  saveCartItems(document.querySelector('ol.cart__items').innerHTML);
+window.onload = () => {
+  createProductItemElement();
+};
+// window.onunload = () =>
+//   ;
