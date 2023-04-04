@@ -28,7 +28,7 @@ mkdir sampaio-projects
 
 ```
 cd sampaio-projects
-git clone git@github.com:RafaelSampaioMoura/HogwartsFanForms.git
+git clone git@github.com:RafaelSampaioMoura/ShoppingCart.git
 ```
 
 <li>Then either execute the index file through your preferred web browser:</li>
@@ -72,7 +72,7 @@ mkdir sampaio-projects
 
 ```
 cd sampaio-projects
-git clone git@github.com:RafaelSampaioMoura/HogwartsFanForms.git
+git clone git@github.com:RafaelSampaioMoura/ShoppingCart.git
 ```
 
 <li>Daí você pode executar o arquivo index a partir da linha de comando usando o seu navegador de preferência:</li>
