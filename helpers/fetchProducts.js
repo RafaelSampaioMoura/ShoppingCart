@@ -9,7 +9,7 @@ const fetchProducts = async (term) => {
     const computerListData = await computerList.json();
     return computerListData;
   } catch (error) {
-    return 'Shit went tits up, my man';
+    return "Um erro aconteceu na requisição dos produtos. Por favor, tente novamente.";
   }
 };
 
